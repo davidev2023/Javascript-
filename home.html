@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logado</title>
+</head>
+<body>
+  <h2>Você está logado!</h2>
+  <button onclick="logout()">Deslogar</button>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbvmr2jWXg_PAT23HqpjLoIkWCTyL2sEA",
+      authDomain: "frelancer-gyn.firebaseapp.com",
+      projectId: "frelancer-gyn",
+      storageBucket: "frelancer-gyn.firebasestorage.app",
+      messagingSenderId: "71458114953",
+      appId: "1:71458114953:web:f9dac0c199fa8047cfe558",
+      measurementId: "G-H5PZTCWWY6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.logout = function() {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
